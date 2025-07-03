@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url('https://i.pinimg.com/736x/ed/7f/1b/ed7f1bd8e3176276a0af91a082d4777.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .container{
     max-width: 1140px;
     margin: 0 auto;
@@ -59,6 +68,11 @@ nav{
     
 }
 
+.maincontent-info a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
 .maincontent-info h3{
     font-size: 2rem;
     color: aliceblue;
@@ -72,7 +86,7 @@ nav{
 }
 
 .maincontent-info .maincontent-btn{
-    background-color: rgb(216, 80, 143);
+    background-color: rgb(194, 102, 145);
     color: aliceblue;
     padding: 0.5rem;
     border-radius: 7px;
@@ -84,6 +98,12 @@ nav{
 
 
 }
+
+.page h2{
+    font-size: 2rem;
+    color: aliceblue;
+}
+
 
 .content-con{
     display: grid ;
@@ -119,6 +139,14 @@ nav{
     color: aliceblue;
     background-color: rgb(127, 72, 179);
     padding: 0.5rem 1rem;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.maincontent-btn{
+    background-color: rgb(173, 79, 129);
+    color: aliceblue;
+    padding: 0.3rem;
     border-radius: 7px;
     text-decoration: none;
 }
