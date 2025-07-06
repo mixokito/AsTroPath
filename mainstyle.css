@@ -86,7 +86,7 @@ nav{
 }
 
 .maincontent-info .maincontent-btn{
-    background-color: rgb(194, 102, 145);
+    background-color: rgb(216, 80, 143);
     color: aliceblue;
     padding: 0.5rem;
     border-radius: 7px;
@@ -144,9 +144,21 @@ nav{
 }
 
 .maincontent-btn{
-    background-color: rgb(173, 79, 129);
+    background-color: deeppink;
     color: aliceblue;
     padding: 0.3rem;
     border-radius: 7px;
     text-decoration: none;
+}
+
+.content-btn{
+    background-color: deeppink;
+    color: aliceblue;
+    padding: 0.3rem;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.maincontent h1{
+    color: aliceblue;
 }

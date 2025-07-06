@@ -67,13 +67,13 @@
                 <img src="https://media.istockphoto.com/id/513438643/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%81%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A2.jpg?s=612x612&w=0&k=20&c=TfUBy7EUfN_bVecHObz_Jfgq1hn5-yLRATpxlWaz5dw=" alt="">
                 <h4>สายคณะอาชีพ</h4>
                 <p>เลือกสิ่งที่เราชอบพร้อมกับสายคณะ</p>
-                <a href="#"  class="content-btn">สิ่งที่เราชอบและสนใจ</a>
+                <a href="#" onclick="showPage('search')">สิ่งที่เราชอบและสนใจ</a>
             </div>
             <div class="content-item">
                 <img src="https://img.kapook.com/u/2019/jutharat/w1/zz1_7.jpg" alt="">
                 <h4>การดูดวง</h4>
                 <p>ดูดวงว่าเราจะได้สายคณะหรืออาชีพอะไร</p>
-                <a href="#" class="content-btn" target="_blank" rel="noopener noreferrer">สิ่งที่เราชอบและสนใจ</a>
+                <a href="#" onclick="showPage('search')">สิ่งที่เราชอบและสนใจ</a>
             </div>
         </div>
     </div>
@@ -98,7 +98,72 @@
         <h2>ติดต่อเรา</h2>
         <p>รายละเอียดการติดต่อ</p>
       </div>
-              
+
+
+      <!-- ค้นหา -->
+      <div id="search" class="page" style="display: none;">
+        <h2>ค้นหาข้อมูล</h2>
+        <p>กรอกข้อมูล วัน/เดือน ของคุณ</p>
+        <form action="submit.html" method="get">
+  <label for="day">วัน:</label>
+  <input type="text" id="day" name="day" maxlength="2" required><br><br>
+
+  <label for="month">เดือน:</label>
+  <input type="text" id="month" name="month" maxlength="2" required><br><br>
+
+
+
+  <a href="#" class="content-btn" onclick="showData(event)">ส่งข้อมูล</a>
+  <div id="result" style="margin-top: 20px; color: white;"></div>
+  
+</form>
+
+<script>
+  // จำกัดให้กรอกได้เฉพาะตัวเลข
+  document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/[^0-9]/g, '');
+    });
+  });
+
+  // แสดงข้อมูลตามวัน/เดือน
+  function showData(event) {
+    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+
+    const day = document.getElementById("day").value;
+    const month = document.getElementById("month").value;
+    const result = document.getElementById("result");
+
+    if (day === "" || month === "") {
+      result.innerHTML = "❗ กรุณากรอกวันและเดือนให้ครบ";
+      return;
+    }
+
+    const d = parseInt(day);
+    const m = parseInt(month);
+
+    // ตัวอย่างข้อมูลตามวัน/เดือน
+    if (d === 5 && m === 7) {
+      result.innerHTML = "🎉 คุณเกิดวันที่ 5 กรกฎาคม: เป็นคนสดใสและมีพลังบวก!";
+    } else if (d === 14 && m === 2) {
+      result.innerHTML = "💘 คุณเกิดวันวาเลนไทน์: โรแมนติกสุดๆ!";
+    } else if (d === 27 && m === 11) {
+      result.innerHTML = "วันเกิดฉันเอง: โหดๆเลยยยย";
+    } else {
+      result.innerHTML = `ยังไม่มีข้อมูลสำหรับวันที่ ${d}/${m}`;
+    } 
+  }
+  // จำกัดให้กรอกได้เฉพาะตัวเลขเท่านั้น
+  document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/[^0-9]/g, '');
+    });
+  });
+</script>
+
+
+      </div>
+
 
     </section>
 </body>
