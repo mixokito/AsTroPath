@@ -39,7 +39,7 @@
             <div class="nav-con">
                 <div class="AsTroPath"><a href="#">AsTroPath</a></div>
                 <ul class="menu">
-                    <li><a href="home.html">หน้าหลัก</a></li>
+                    <li><a href="index.html">หน้าหลัก</a></li>
   <li><a href="category.html">หมวดหมู่</a></li>
   <li><a href="about.html">เกี่ยวกับเรา</a></li>
   <li><a href="contact.html">ติดต่อเรา</a></li>
@@ -51,13 +51,33 @@
     <section class="maincontent">
         <div class="container">
             <div class="maincontent-con">
-                 <div >
-        <h2>ยินดีต้อนรับ</h2>
-        <p>นี่คือเนื้อหาหน้าหลัก</p>
+
+                 <!-- ค้นหา -->
+      <div >
+        <h2>ค้นหาข้อมูล</h2>
+        <p>กรอก วัน เดือน ของคุณ</p>
+     <form onsubmit="goToResult(event)">
+    <label for="day">วัน:</label>
+    <input type="number" id="day" name="day" min="1" max="31" required>
+
+    <label for="month">เดือน:</label>
+    <input type="number" id="month" name="month" min="1" max="12" required>
+
+<button type="submit" class="content-btn">ส่งข้อมูล</button>
+
+<script>
+
+
+function goToResult(event) {
+      event.preventDefault(); // ป้องกันการ reload
+
+      const day = document.getElementById("day").value;
+      const month = document.getElementById("month").value;
+
+      // ส่งข้อมูลไปที่ result.html โดยใช้ query string
+      window.location.href = `result.html?day=${day}&month=${month}`;
+    }
+</script>
+
+
       </div>
-
-     
-
-    </section>
-</body>
-</html>
