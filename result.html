@@ -67,23 +67,17 @@
     const formattedDate = `${pad(day)}/${pad(month)}`;
 
     // โหลดไฟล์ JSON
-    fetch("ดวงการเรียน_366วัน.json")
+    fetch("zodiac_study_366_days.json")
       .then(response => response.json())
       .then(data => {
-        const found = data.find(item => item.วันที่ === formattedDate);
+        const found = data.find(item => item.day === formattedDate);
 
         const resultDiv = document.getElementById("result");
 
         if (found) {
           resultDiv.innerHTML = `
-            <p><strong>วันที่:</strong> ${found.วันที่}</p>
-            <p><strong>ราศี:</strong> ${found.ราศี}</p>
-            <p><strong>บุคลิกโดยรวม:</strong> ${found.บุคลิกโดยรวม}</p>
-            <p><strong>ดวงการเรียน:</strong> ${found.ดวงการเรียน}</p>
-            <p><strong>สาขาและคณะที่เหมาะสม:</strong> ${found.สาขาและคณะที่เหมาะสม}</p>
-            <p><strong>ดวงความรัก:</strong> ${found.ดวงความรัก}</p>
-            <p><strong>สุขภาพ:</strong> ${found.สุขภาพ}</p>
-            <p><strong>คำแนะนำ:</strong> ${found.คำแนะนำ}</p>
+            <p><strong>ราศี:</strong> ${found.zodiac}</p>
+            <p><strong>ลักษณะการเรียน:</strong> ${found.study_trait}</p>
           `;
         } else {
           resultDiv.innerHTML = "ไม่พบข้อมูลสำหรับวันนี้ กรุณาตรวจสอบวันและเดือนอีกครั้ง";
